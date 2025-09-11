@@ -1,0 +1,23 @@
+﻿node_modules/
+
+# Build outputs
+.next/
+out/
+.turbo/
+
+# Env files (keep only templates)
+.env
+.env.local
+.env.*.local
+
+# Vercel local dir
+.vercel/
+
+# OS/Editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Large local-only dirs
+PotPlayer/
+portfolio/
