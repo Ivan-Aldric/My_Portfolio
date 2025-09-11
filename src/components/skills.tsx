@@ -1,0 +1,282 @@
+"use client"
+
+import { motion } from "framer-motion"
+import { Code2, Wrench, BarChart3, Search, Palette, ClipboardList, TrendingUp, Award, Star, Zap } from "lucide-react"
+
+export default function Skills() {
+  const technicalSkills = [
+    {
+      category: "Programming Languages",
+      skills: [
+        { name: "PHP", level: 90 },
+        { name: "JavaScript", level: 85 },
+        { name: "Python", level: 80 },
+        { name: "SQL", level: 88 },
+        { name: "TypeScript", level: 82 },
+        { name: "React", level: 85 },
+        { name: "Node.js", level: 78 },
+        { name: "HTML5", level: 95 },
+      ],
+      icon: Code2,
+      color: "from-blue-500 to-cyan-500",
+    },
+    {
+      category: "Development Tools",
+      skills: [
+        { name: "XAMPP", level: 85 },
+        { name: "SQL Server Management Studio", level: 88 },
+        { name: "Bootstrap", level: 90 },
+        { name: "Tailwind CSS", level: 92 },
+        { name: "Git", level: 85 },
+        { name: "VS Code", level: 95 },
+      ],
+      icon: Wrench,
+      color: "from-purple-500 to-pink-500",
+    },
+    {
+      category: "Data & Analytics",
+      skills: [
+        { name: "Business Intelligence", level: 85 },
+        { name: "Data Analytics", level: 88 },
+        { name: "Decision Support Systems", level: 82 },
+        { name: "Data Visualization", level: 85 },
+      ],
+      icon: BarChart3,
+      color: "from-green-500 to-emerald-500",
+    },
+  ]
+
+  const professionalSkills = [
+    {
+      category: "IT Consulting & Auditing",
+      description: "System analysis, process optimization, and technology assessment",
+      icon: Search,
+      color: "from-orange-500 to-red-500",
+    },
+    {
+      category: "UI/UX Design",
+      description: "User-centered design, wireframing, and interface optimization",
+      icon: Palette,
+      color: "from-pink-500 to-rose-500",
+    },
+    {
+      category: "Project/Product Management",
+      description: "Agile methodologies, stakeholder management, and delivery coordination",
+      icon: ClipboardList,
+      color: "from-indigo-500 to-purple-500",
+    },
+    {
+      category: "Data Analysis & Decision Support",
+      description: "Statistical analysis, reporting, and business intelligence solutions",
+      icon: TrendingUp,
+      color: "from-teal-500 to-cyan-500",
+    },
+  ]
+
+  const certifications = [
+    { name: "Microsoft Office PowerPoint Specialist", issuer: "Microsoft", year: "2024", level: "Specialist" },
+    { name: "HTML5 Specialist", issuer: "Sololearn", year: "2023", level: "Certified" },
+    { name: "Microsoft Office Word Specialist", issuer: "Microsoft", year: "2024", level: "Specialist" },
+  ]
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  }
+
+  return (
+    <section
+      id="skills"
+      className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 relative overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 bg-[size:20px_20px] opacity-30" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-cyan-400/20 to-blue-400/20 rounded-full blur-3xl" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4">
+            <Zap className="w-4 h-4" />
+            Skills & Expertise
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-100 dark:to-white bg-clip-text text-transparent mb-4">
+            Technical Mastery
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
+            Comprehensive technical proficiency and professional capabilities across multiple domains
+          </p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <motion.h3
+            variants={itemVariants}
+            className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center"
+          >
+            Technical Skills
+          </motion.h3>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {technicalSkills.map((category, index) => {
+              const IconComponent = category.icon
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <div
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-r ${category.color} p-3 group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <IconComponent className="w-full h-full text-white" />
+                    </div>
+                    <h4 className="text-xl font-bold text-slate-900 dark:text-white">{category.category}</h4>
+                  </div>
+                  <div className="space-y-4">
+                    {category.skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skillIndex}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: skillIndex * 0.1 }}
+                        className="space-y-2"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="text-slate-700 dark:text-slate-300 font-medium">{skill.name}</span>
+                          <span className="text-sm text-slate-500 dark:text-slate-400">{skill.level}%</span>
+                        </div>
+                        <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: skillIndex * 0.1 }}
+                            className={`h-2 rounded-full bg-gradient-to-r ${category.color}`}
+                          />
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-20"
+        >
+          <motion.h3
+            variants={itemVariants}
+            className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center"
+          >
+            Professional Skills
+          </motion.h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {professionalSkills.map((skill, index) => {
+              const IconComponent = skill.icon
+              return (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="group bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200/50 dark:border-slate-700/50"
+                >
+                  <div className="flex items-start gap-6">
+                    <div
+                      className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${skill.color} p-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 flex-shrink-0`}
+                    >
+                      <IconComponent className="w-full h-full text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {skill.category}
+                      </h4>
+                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{skill.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </motion.div>
+
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+          <motion.h3
+            variants={itemVariants}
+            className="text-3xl font-bold text-slate-900 dark:text-white mb-12 text-center"
+          >
+            Certifications & Achievements
+          </motion.h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ y: -8, scale: 1.05 }}
+                className="group relative bg-gradient-to-br from-white via-blue-50/50 to-indigo-50 dark:from-slate-800 dark:via-slate-800/80 dark:to-slate-700 rounded-2xl p-8 text-center shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-200/50 dark:border-slate-600/50 overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl mx-auto mb-6 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                    <Award className="w-10 h-10 text-white" />
+                  </div>
+                  <div className="flex items-center justify-center gap-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                  <h4 className="font-bold text-slate-900 dark:text-white mb-3 text-lg leading-tight">{cert.name}</h4>
+                  <div className="space-y-2">
+                    <p className="text-slate-600 dark:text-slate-300 font-medium">{cert.issuer}</p>
+                    <div className="flex items-center justify-center gap-4 text-sm">
+                      <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
+                        {cert.year}
+                      </span>
+                      <span className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-3 py-1 rounded-full">
+                        {cert.level}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
