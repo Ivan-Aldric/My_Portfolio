@@ -52,7 +52,6 @@ export default function Resume() {
           <div class="title">MIS Specialist | Developer | IT Consultant</div>
           <div class="contact">
             <div class="contact-item">📧 aldricivan8@gmail.com</div>
-            <div class="contact-item">📱 +237 657 910 666</div>
             <div class="contact-item">📱 +237 659 245 063</div>
             <div class="contact-item">📍 Douala, Cameroon</div>
           </div>
@@ -83,22 +82,6 @@ export default function Resume() {
             <div><strong>Technologies:</strong> <span class="skills"><span class="skill">PHP</span><span class="skill">MySQL</span><span class="skill">JavaScript</span><span class="skill">Bootstrap</span><span class="skill">Chart.js</span><span class="skill">PHPMailer</span></span></div>
           </div>
 
-          <div class="experience-item">
-            <div class="job-title">Freelance Web Developer</div>
-            <div class="company">Various Clients</div>
-            <div class="period">2022 - 2023</div>
-            <div class="description">Delivered custom web solutions for small to medium businesses, focusing on data-driven applications and business intelligence systems.</div>
-            <div class="achievements">
-              <strong>Key Achievements:</strong>
-              <ul>
-                <li>Built 15+ custom web applications with focus on business intelligence</li>
-                <li>Improved client operational efficiency by an average of 40%</li>
-                <li>Maintained 100% client satisfaction rate with on-time project delivery</li>
-                <li>Specialized in PHP-based solutions with modern UI/UX design</li>
-              </ul>
-            </div>
-            <div><strong>Technologies:</strong> <span class="skills"><span class="skill">PHP</span><span class="skill">MySQL</span><span class="skill">JavaScript</span><span class="skill">Bootstrap</span><span class="skill">Tailwind CSS</span><span class="skill">Git</span></span></div>
-          </div>
         </div>
 
         <div class="section">
@@ -106,7 +89,7 @@ export default function Resume() {
           <div class="education-item">
             <div class="education-degree">Bachelor of Applied Computing in Management Information Systems</div>
             <div class="institution">Institut Universitaire De La Cote</div>
-            <div class="period">2020 - 2024</div>
+            <div class="period">2022 - 2025</div>
             <div class="description">Comprehensive program covering business intelligence, system analysis, database management, and IT consulting methodologies.</div>
             <div><strong>Relevant Coursework:</strong> Database Management Systems, Business Intelligence & Analytics, System Analysis & Design, Project Management, IT Consulting & Auditing, IT Support & Maintenance, Data Visualization, Network Administration, Web Application Development</div>
           </div>
@@ -231,15 +214,15 @@ export default function Resume() {
             <motion.div className="flex flex-wrap justify-center gap-6 text-sm" variants={itemVariants}>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-full">
                 <Mail className="w-4 h-4 text-blue-600" />
-                <span>your.email@example.com</span>
+                <span>aldricivan8@gmail.com</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-full">
                 <Phone className="w-4 h-4 text-green-600" />
-                <span>+1 (555) 123-4567</span>
+                <span>+237 659 245 063</span>
               </div>
               <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-2 rounded-full">
                 <MapPin className="w-4 h-4 text-red-600" />
-                <span>Your City, Country</span>
+                <span>Douala, Cameroon</span>
               </div>
             </motion.div>
           </motion.div>
@@ -332,16 +315,6 @@ export default function Resume() {
                       "Led development of Sales Analytics & Decision Support System",
                       "Implemented role-based dashboards and automated reporting",
                       "Reduced manual reporting time by 70%",
-                    ],
-                  },
-                  {
-                    title: "Freelance Web Developer",
-                    period: "2022 - 2023",
-                    company: "Various Clients",
-                    achievements: [
-                      "Built 15+ custom web applications",
-                      "Improved client operational efficiency by 40%",
-                      "Maintained 100% client satisfaction rate",
                     ],
                   },
                 ].map((job, index) => (

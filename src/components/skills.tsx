@@ -8,38 +8,53 @@ export default function Skills() {
     {
       category: "Programming Languages",
       skills: [
-        { name: "PHP", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "Python", level: 80 },
-        { name: "SQL", level: 88 },
-        { name: "TypeScript", level: 82 },
-        { name: "React", level: 85 },
-        { name: "Node.js", level: 78 },
-        { name: "HTML5", level: 95 },
+        "PHP",
+        "JavaScript", 
+        "Python",
+        "SQL",
+        "TypeScript",
+        "HTML5",
+        "CSS3"
       ],
       icon: Code2,
       color: "from-blue-500 to-cyan-500",
     },
     {
-      category: "Development Tools",
+      category: "Frameworks & Libraries",
       skills: [
-        { name: "XAMPP", level: 85 },
-        { name: "SQL Server Management Studio", level: 88 },
-        { name: "Bootstrap", level: 90 },
-        { name: "Tailwind CSS", level: 92 },
-        { name: "Git", level: 85 },
-        { name: "VS Code", level: 95 },
+        "React",
+        "Node.js",
+        "Bootstrap",
+        "Tailwind CSS",
+        "Chart.js",
+        "Framer Motion"
       ],
       icon: Wrench,
       color: "from-purple-500 to-pink-500",
     },
     {
+      category: "Development Tools",
+      skills: [
+        "XAMPP",
+        "SQL Server Management Studio",
+        "Git",
+        "VS Code",
+        "MySQL",
+        "Supabase",
+        "PostgreSQL"
+      ],
+      icon: Wrench,
+      color: "from-orange-500 to-red-500",
+    },
+    {
       category: "Data & Analytics",
       skills: [
-        { name: "Business Intelligence", level: 85 },
-        { name: "Data Analytics", level: 88 },
-        { name: "Decision Support Systems", level: 82 },
-        { name: "Data Visualization", level: 85 },
+        "Business Intelligence",
+        "Data Analytics", 
+        "Decision Support Systems",
+        "Data Visualization",
+        "Statistical Analysis",
+        "Reporting Systems"
       ],
       icon: BarChart3,
       color: "from-green-500 to-emerald-500",
@@ -50,24 +65,28 @@ export default function Skills() {
     {
       category: "IT Consulting & Auditing",
       description: "System analysis, process optimization, and technology assessment",
+      skills: ["System Analysis", "Process Optimization", "Technology Assessment", "IT Auditing", "Risk Management"],
       icon: Search,
       color: "from-orange-500 to-red-500",
     },
     {
       category: "UI/UX Design",
       description: "User-centered design, wireframing, and interface optimization",
+      skills: ["User Research", "Wireframing", "Prototyping", "Interface Design", "User Experience"],
       icon: Palette,
       color: "from-pink-500 to-rose-500",
     },
     {
       category: "Project/Product Management",
       description: "Agile methodologies, stakeholder management, and delivery coordination",
+      skills: ["Agile Methodologies", "Stakeholder Management", "Project Planning", "Team Leadership", "Quality Assurance"],
       icon: ClipboardList,
       color: "from-indigo-500 to-purple-500",
     },
     {
       category: "Data Analysis & Decision Support",
       description: "Statistical analysis, reporting, and business intelligence solutions",
+      skills: ["Statistical Analysis", "Business Intelligence", "Data Mining", "Report Generation", "Decision Support"],
       icon: TrendingUp,
       color: "from-teal-500 to-cyan-500",
     },
@@ -160,30 +179,18 @@ export default function Skills() {
                     </div>
                     <h4 className="text-lg lg:text-xl font-bold text-slate-900 dark:text-white">{category.category}</h4>
                   </div>
-                  <div className="space-y-4">
+                  <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill, skillIndex) => (
-                      <motion.div
+                      <motion.span
                         key={skillIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: skillIndex * 0.1 }}
-                        className="space-y-2"
+                        className="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-300 px-3 py-2 rounded-lg text-sm font-medium hover:scale-105 transition-transform cursor-default shadow-sm hover:shadow-md"
                       >
-                        <div className="flex justify-between items-center">
-                          <span className="text-slate-700 dark:text-slate-300 font-medium text-sm lg:text-base">{skill.name}</span>
-                          <span className="text-xs lg:text-sm text-slate-500 dark:text-slate-400">{skill.level}%</span>
-                        </div>
-                        <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 lg:h-2">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: skillIndex * 0.1 }}
-                            className={`h-1.5 lg:h-2 rounded-full bg-gradient-to-r ${category.color}`}
-                          />
-                        </div>
-                      </motion.div>
+                        {skill}
+                      </motion.span>
                     ))}
                   </div>
                 </motion.div>
@@ -225,7 +232,21 @@ export default function Skills() {
                       <h4 className="text-lg lg:text-xl font-bold text-slate-900 dark:text-white mb-2 lg:mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {skill.category}
                       </h4>
-                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm lg:text-base">{skill.description}</p>
+                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm lg:text-base mb-4">{skill.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {skill.skills.map((skillItem, skillIndex) => (
+                          <motion.span
+                            key={skillIndex}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: skillIndex * 0.05 }}
+                            className="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-300 px-2 py-1 rounded-md text-xs font-medium hover:scale-105 transition-transform cursor-default"
+                          >
+                            {skillItem}
+                          </motion.span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>

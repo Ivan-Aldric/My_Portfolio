@@ -8,7 +8,7 @@ export default function Experience() {
     {
       title: "IT Consultant & Developer",
       company: "Global IT Corporation",
-      period: "2023 - Present",
+      period: "2024 from March to June",
       type: "Internship",
       description:
         "Led the development of Sales Analytics & Decision Support System project. Implemented role-based dashboards, analytics modules, and PHPMailer integration for automated reporting.",
@@ -20,28 +20,13 @@ export default function Experience() {
       ],
       technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap", "Chart.js", "PHPMailer"],
     },
-    {
-      title: "Freelance Web Developer",
-      company: "Various Clients",
-      period: "2022 - 2023",
-      type: "Freelance",
-      description:
-        "Delivered custom web solutions for small to medium businesses, focusing on data-driven applications and business intelligence systems.",
-      achievements: [
-        "Built 15+ custom web applications with focus on business intelligence",
-        "Improved client operational efficiency by an average of 40%",
-        "Maintained 100% client satisfaction rate with on-time project delivery",
-        "Specialized in PHP-based solutions with modern UI/UX design",
-      ],
-      technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap", "Tailwind CSS", "Git"],
-    },
   ]
 
   const education = [
     {
-      degree: "Bachelor of Applied Computing in Management Information Systems",
+      degree: "Bachelor of Science in Applied Computing in Management Information Systems",
       institution: "Institut Universitaire De La Cote",
-      period: "2020 - 2024",
+      period: "2022 - 2025",
       description:
         "Comprehensive program covering business intelligence, system analysis, database management, and IT consulting methodologies.",
       relevantCourses: [
