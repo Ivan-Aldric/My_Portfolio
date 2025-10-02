@@ -45,22 +45,74 @@ export default function Contact() {
     }))
   }
 
+  const sendViaEmailJS = async () => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    if (!publicKey || publicKey === "YOUR_EMAILJS_PUBLIC_KEY") {
+      throw new Error("EmailJS not configured")
+    }
+
+    const serviceId = "service_portfolio"
+    const templateId = "template_contact"
+    
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject || "Portfolio Contact Form",
+      message: formData.message,
+      to_name: "Ivan Aldric",
+    }
+
+    const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
+    
+    if (response.status === 200) {
+      setSubmitStatus("success")
+      setFormData({ name: "", email: "", subject: "", message: "" })
+      setTimeout(() => setSubmitStatus("idle"), 5000)
+    } else {
+      throw new Error("EmailJS failed")
+    }
+  }
+
+  const sendViaAPI = async () => {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject || "Portfolio Contact Form",
+        message: formData.message,
+      }),
+    })
+
+    if (response.ok) {
+      setSubmitStatus("success")
+      setFormData({ name: "", email: "", subject: "", message: "" })
+      setTimeout(() => setSubmitStatus("idle"), 5000)
+    } else {
+      throw new Error("API failed")
+    }
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
     try {
-      // Using Formspree for direct email sending
-      const formspreeFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID
-      const formspreeEndpoint = formspreeFormId
-        ? `https://formspree.io/f/${formspreeFormId}`
-        : "https://formspree.io/f/xqadwnbj"
-
+      // Try multiple methods for better reliability
+      const formspreeFormId = process.env.NEXT_PUBLIC_FORMSPREE_FORM_ID || "xqadwnbj"
+      
+      // Method 1: Try Formspree with proper headers
+      const formspreeEndpoint = `https://formspree.io/f/${formspreeFormId}`
+      
       const response = await fetch(formspreeEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json",
         },
         body: JSON.stringify({
           name: formData.name,
@@ -69,24 +121,35 @@ export default function Contact() {
           message: formData.message,
           _replyto: formData.email,
           _subject: `New Contact Form Message - ${formData.subject || "Portfolio Contact Form"}`,
+          _next: window.location.href,
         }),
       })
 
       if (response.ok) {
         setSubmitStatus("success")
         setFormData({ name: "", email: "", subject: "", message: "" })
-
-        // Reset success message after 5 seconds
         setTimeout(() => setSubmitStatus("idle"), 5000)
       } else {
-        throw new Error("Failed to send message")
+        // Method 2: Fallback to EmailJS if Formspree fails
+        console.log("Formspree failed, trying EmailJS fallback...")
+        await sendViaEmailJS()
       }
     } catch (error) {
-      console.error("Error sending message:", error)
-      setSubmitStatus("error")
-
-      // Reset error message after 5 seconds
-      setTimeout(() => setSubmitStatus("idle"), 5000)
+      console.error("Formspree error:", error)
+      // Try EmailJS as fallback
+      try {
+        await sendViaEmailJS()
+      } catch (emailjsError) {
+        console.error("EmailJS error:", emailjsError)
+        // Try API route as final fallback
+        try {
+          await sendViaAPI()
+        } catch (apiError) {
+          console.error("API error:", apiError)
+          setSubmitStatus("error")
+          setTimeout(() => setSubmitStatus("idle"), 5000)
+        }
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -103,7 +166,7 @@ export default function Contact() {
     {
       icon: Phone,
       label: "Phone",
-      value: ["+237 657 910 666", "+237 659 245 063"],
+      value: ["+237 657 910 666", "+237 659 245 063", "+237 672 217 287"],
       color: "green",
       href: "tel:+237657910666",
     },
