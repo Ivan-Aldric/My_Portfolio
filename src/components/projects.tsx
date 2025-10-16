@@ -6,12 +6,12 @@ import { ExternalLink, Github, Code, Database, Smartphone, TrendingUp, Graduatio
 export default function Projects() {
   const projects = [
     {
-      title: "Smart Local Services Marketplace",
-      description: "Comprehensive marketplace platform with admin insights and analytics dashboard.",
-      techStack: ["PHP", "MySQL", "JavaScript", "Bootstrap", "Chart.js"],
-      impact: "Increased bookings by 40%, reduced admin overhead by 60%",
+      title: "Smart Task - Task Management Application",
+      description: "Modern task management application with intuitive interface for managing tasks, tracking progress, and staying organized.",
+      techStack: ["React", "TypeScript", "Vite", "shadcn/ui", "Tailwind CSS"],
+      impact: "Streamlined task organization, improved productivity with modern UI",
       github: "#",
-      live: "#",
+      live: "smart-task-one.vercel.app",
       icon: Code,
       gradient: "from-blue-500 to-cyan-500",
       image: "/api/placeholder/400/300",
@@ -128,10 +128,10 @@ export default function Projects() {
                         <p className="text-xs font-medium opacity-90">Project</p>
                       </div>
                     </div>
-                    
+
                     {/* Overlay gradient */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    
+
                     {/* Impact badge */}
                     <div className="absolute top-2 right-2">
                       <span className="bg-green-500/90 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium">
@@ -142,12 +142,12 @@ export default function Projects() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-4 flex flex-col h-full">
+                <div className="p-4 flex flex-col min-h-[200px]">
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                       {project.title}
                     </h3>
-                    
+
                     <p className="text-xs text-slate-600 dark:text-slate-300 mb-3 leading-relaxed line-clamp-2">
                       {project.description}
                     </p>
@@ -175,7 +175,7 @@ export default function Projects() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-1 mt-auto">
+                  <div className="flex gap-1 mt-auto pt-2">
                     <a
                       href={project.github}
                       className="flex-1 flex items-center justify-center gap-1 bg-slate-900 dark:bg-slate-700 text-white px-2 py-1.5 rounded-md hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors text-xs font-medium"
