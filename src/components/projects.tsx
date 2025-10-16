@@ -11,7 +11,7 @@ export default function Projects() {
       techStack: ["React", "TypeScript", "Vite", "shadcn/ui", "Tailwind CSS"],
       impact: "Streamlined task organization, improved productivity with modern UI",
       github: "#",
-      live: "smart-task-one.vercel.app",
+      live: "https://smart-task-one.vercel.app",
       icon: Code,
       gradient: "from-blue-500 to-cyan-500",
       image: "/api/placeholder/400/300",
