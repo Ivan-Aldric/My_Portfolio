@@ -1,21 +1,22 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { ThemeToggle } from './theme-toggle'
 import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Resume', href: '#resume' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/about' },
+    { name: 'Skills', href: '/skills' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Experience', href: '/experience' },
+    { name: 'Contact', href: '/contact' },
   ]
 
   return (
@@ -36,7 +37,8 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-2 lg:px-3 py-2 rounded-md text-sm font-medium transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                  className={`px-2 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white lg:px-3 ${pathname === item.href ? 'text-[#8fac3e] dark:text-[#c8f169]' : 'text-gray-700 dark:text-gray-300'}`}
                 >
                   {item.name}
                 </Link>
@@ -65,7 +67,8 @@ export default function Navigation() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 block px-4 py-3 rounded-lg text-base font-medium transition-colors"
+                  aria-current={pathname === item.href ? 'page' : undefined}
+                  className={`block rounded-lg px-4 py-3 text-base font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white ${pathname === item.href ? 'text-[#8fac3e] dark:text-[#c8f169]' : 'text-gray-700 dark:text-gray-300'}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

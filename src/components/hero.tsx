@@ -1,132 +1,110 @@
-import { ArrowRight, Download, Mail, Sparkles, Code, Database, TrendingUp } from "lucide-react"
+import { ArrowRight, Mail } from "lucide-react"
+import Image from "next/image"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 bg-[size:20px_20px] opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/50 to-transparent dark:via-slate-900/50" />
+    <section className="relative isolate min-h-[calc(100svh-4rem)] overflow-hidden bg-[#090a09] text-[#f2f2ed]">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.12]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+          maskImage: "linear-gradient(to bottom, black, transparent 85%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-52 top-12 h-[42rem] w-[42rem] rounded-full border border-white/[0.06] sm:-right-32"
+      />
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60" />
-      <div className="absolute top-40 right-20 w-3 h-3 bg-indigo-400 rounded-full animate-bounce opacity-40" />
-      <div className="absolute bottom-32 left-20 w-1.5 h-1.5 bg-purple-400 rounded-full animate-ping opacity-50" />
+      <div className="relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-7xl flex-col justify-between px-5 pb-8 pt-28 sm:px-8 sm:pb-10 sm:pt-32 lg:px-12">
+        <div className="flex items-center justify-between border-b border-white/15 pb-4 text-[10px] uppercase tracking-[0.2em] text-white/45 sm:text-xs">
+          <span>Portfolio / MIS Specialist</span>
+          <span className="flex items-center gap-2 text-[#c8f169]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#c8f169]" />
+            Available for new opportunities
+          </span>
+        </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Content */}
-          <div className="text-center lg:text-left space-y-10">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800">
-              <Sparkles className="w-4 h-4" />
-              Available for new opportunities
-            </div>
+        <div className="grid flex-1 items-center gap-12 py-14 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.8fr)] lg:gap-16 lg:py-16">
+          <div className="relative z-10">
+            <p className="mb-5 text-[10px] uppercase tracking-[0.25em] text-white/45 sm:text-xs">
+              Data <span className="px-2 text-[#c8f169]">/</span> Systems{" "}
+              <span className="px-2 text-[#c8f169]">/</span> Innovation
+            </p>
 
-            <div className="space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-tight">
-                Building
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
-                  Smart Business Solutions
-                </span>
-              </h1>
-              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center lg:justify-start">
-                <div className="flex items-center gap-2 text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 font-semibold">
-                  <Code className="w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
-                  MIS Specialist
-                </div>
-                <div className="hidden sm:block w-1 h-1 bg-slate-400 rounded-full" />
-                <div className="flex items-center gap-2 text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 font-semibold">
-                  <Database className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-500" />
-                  Developer
-                </div>
-                <div className="hidden sm:block w-1 h-1 bg-slate-400 rounded-full" />
-                <div className="flex items-center gap-2 text-sm sm:text-base md:text-lg lg:text-xl text-slate-600 dark:text-slate-300 font-semibold">
-                  <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-purple-500" />
-                  IT Consultant
-                </div>
-              </div>
-            </div>
+            <h1 className="max-w-4xl text-5xl font-medium leading-[0.98] tracking-[-0.055em] sm:text-6xl md:text-7xl xl:text-7xl">
+              Building
+              <span className="block text-white/55">Smart Business</span>
+              <span className="block">
+                Solutions<span className="text-[#c8f169]">.</span>
+              </span>
+            </h1>
 
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed text-balance">
+            <p className="mt-7 max-w-xl text-sm leading-7 text-white/60 sm:mt-8 sm:text-base sm:leading-8">
               Passionate about designing intelligent systems that drive business growth. I specialize in creating
               data-driven solutions that transform complex information into actionable insights for modern
               organizations.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+            <div className="mt-7 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-white/15 py-4 text-[10px] uppercase tracking-[0.16em] text-white/65 sm:mt-8 sm:gap-x-6 sm:text-xs">
+              <span>MIS Specialist</span>
+              <span className="text-[#c8f169]">/</span>
+              <span>Developer</span>
+              <span className="text-[#c8f169]">/</span>
+              <span>IT Consultant</span>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:flex-wrap">
               <a
-                href="#projects"
-                className="group inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/25 text-sm sm:text-base"
+                href="/projects"
+                className="group inline-flex min-h-12 items-center justify-between gap-8 bg-[#c8f169] px-5 py-3 text-sm font-semibold text-[#11130d] transition-colors hover:bg-[#d8ff83]"
               >
                 View My Projects
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#resume"
-                className="group inline-flex items-center justify-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-200 hover:scale-105 hover:shadow-lg text-sm sm:text-base"
+                href="/contact"
+                className="inline-flex min-h-12 items-center gap-3 px-3 py-3 text-sm text-white/55 transition-colors hover:text-[#c8f169]"
               >
-                <Download className="w-4 h-4" />
-                Download Resume
-              </a>
-              <a
-                href="#contact"
-                className="group inline-flex items-center justify-center gap-2 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-xl transition-all duration-200 hover:scale-105 text-sm sm:text-base"
-              >
-                <Mail className="w-4 h-4" />
+                <Mail className="h-4 w-4" />
                 Get In Touch
               </a>
             </div>
           </div>
 
-          {/* Right Column - Enhanced Visual */}
-          <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-            <div className="relative">
-              {/* Main Circle */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl shadow-blue-500/20 animate-pulse">
-                <div className="w-52 h-52 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20">
-                  <div className="text-center space-y-2">
-                    <div className="text-4xl sm:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                      LIA
-                    </div>
-                    <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium">
-                      Data • Systems • Innovation
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="relative mx-auto flex aspect-square w-full max-w-[27rem] items-center justify-center lg:ml-auto">
+            <div
+              aria-hidden="true"
+              className="absolute inset-[7%] rounded-full border border-white/10"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-[19%] rounded-full border border-[#c8f169]/25"
+            />
+            <div className="absolute left-[8%] top-[18%] h-1.5 w-1.5 rounded-full bg-[#c8f169]" />
+            <div className="absolute bottom-[17%] right-[12%] h-1.5 w-1.5 rounded-full bg-[#c8f169]" />
 
-              {/* Orbiting Elements */}
-              <div className="absolute inset-0 animate-spin" style={{ animationDuration: "20s" }}>
-                <div className="absolute -top-4 sm:-top-6 left-1/2 transform -translate-x-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Code className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <div className="absolute top-1/2 -right-4 sm:-right-6 transform -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-green-400 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Database className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <div className="absolute -bottom-4 sm:-bottom-6 left-1/2 transform -translate-x-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-pink-400 to-rose-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <TrendingUp className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                </div>
-                <div className="absolute top-1/2 -left-4 sm:-left-6 transform -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-400 to-violet-500 rounded-xl flex items-center justify-center shadow-lg">
-                  <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-                </div>
-              </div>
-
-              {/* Floating Particles */}
-              <div
-                className="absolute -top-6 sm:-top-8 -right-6 sm:-right-8 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-bounce opacity-80"
-                style={{ animationDelay: "0s" }}
+            <div className="relative aspect-square w-[72%] overflow-hidden rounded-full border-2 border-[#c8f169]/80 bg-[#0d0f0c] shadow-[0_0_60px_rgba(200,241,105,0.12)]">
+              <Image
+                src="/lia-professional.jpg"
+                alt="Portrait of Lia"
+                fill
+                priority
+                sizes="(min-width: 1024px) 310px, 70vw"
+                className="object-cover object-[center_64%]"
               />
-              <div
-                className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-bounce opacity-60"
-                style={{ animationDelay: "1s" }}
-              />
-              <div className="absolute top-1/4 -left-8 sm:-left-12 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-pink-400 to-rose-500 rounded-full animate-ping opacity-70" />
-              <div className="absolute bottom-1/4 -right-8 sm:-right-12 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-purple-400 to-violet-500 rounded-full animate-pulse opacity-80" />
-
-              {/* Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl -z-10 animate-pulse" />
             </div>
           </div>
+        </div>
+
+        <div className="flex items-center justify-between border-t border-white/15 pt-4 text-[9px] uppercase tracking-[0.2em] text-white/40 sm:text-[10px]">
+          <span>Management Information Systems</span>
+          <a href="/about" className="transition-colors hover:text-[#c8f169]">
+            Scroll to discover <span aria-hidden="true">↓</span>
+          </a>
         </div>
       </div>
     </section>
