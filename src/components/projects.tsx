@@ -164,6 +164,13 @@ export default function Projects() {
           })}
         </motion.div>
       </div>
+
+      <div className="flex items-center justify-between border-t border-white/15 pt-4 text-[9px] uppercase tracking-[0.2em] text-white/40 sm:text-[10px]">
+          <span>Management Information Systems</span>
+          <a href="/experience" className="transition-colors hover:text-[#c8f169]">
+            Click to learn more <span aria-hidden="true">→</span>
+          </a>
+        </div>
     </section>
   )
 }
